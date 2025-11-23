@@ -1,132 +1,142 @@
-# 📄 R.I.S.E – Plataforma de Requalificação Profissional  
-### _Currículo Inteligente com IA Generativa + App Mobile + API .NET_
+# R.I.S.E — Requalificação, Inclusão, Sustentabilidade e Empregabilidade
 
-Este projeto integra **.NET Web API**, **React Native (Expo)**, **Oracle**, e **IA Generativa (Gemini)** para criar um sistema completo focado na reintegração de pessoas ao mercado de trabalho.
+## 🚀 Visão Geral do Projeto
+O **R.I.S.E.** é um ecossistema completo criado para apoiar pessoas em processo de reintegração ao mercado de trabalho.  
+A solução integra:
 
----
+- Aplicativo Mobile (React Native + Expo)  
+- API .NET 8  
+- Banco Oracle  
+- IA Generativa (Gemini Flash 2.5)  
+- Arquitetura unificada Web/Mobile + Deep Learning  
 
-## 🚀 Tecnologias Utilizadas
-
-### **Backend – .NET 7 Web API**
-- ASP.NET Core
-- Entity Framework Core + Oracle
-- Injeção de dependência
-- REST API consumida pelo app mobile
-- Serviços de IA integrados via Google Gemini
-
-### **Mobile – React Native (Expo)**
-- Navegação com React Navigation
-- Zustand para gerenciamento de estado
-- Axios para comunicação com API
-- UI personalizada e responsiva
-- Geração de PDF do currículo pelo app
-- Consumo completo da IA diretamente no app
-
-### **Banco de Dados – Oracle**
-- Tabelas normalizadas
-- Currículos armazenados em JSON
-- Integração via EF Core
-
-### **IA Generativa – Google Gemini**
-- Geração de:
-  - Resumo profissional refinado
-  - Bullet points para experiências/projetos
-  - Cursos sugeridos baseados no banco
-  - Preparação para entrevistas
-- Prompt engineering avançado
-- Respostas validadas e saneadas
+Seu objetivo é oferecer uma jornada guiada por IA, com currículo inteligente, trilhas de requalificação e ferramentas de acompanhamento de progresso.
 
 ---
 
-## 🧠 Funcionalidade de IA – “Currículo Inteligente”
+# 🔥 Funcionalidades Principais
 
-O app envia o currículo completo do usuário para a API, que:
+## 🧠 Currículo Inteligente (IA Generativa)
+Após preencher o currículo, o usuário recebe:
 
-1. **Processa com o Gemini**
-2. **Recebe um JSON padronizado**
-3. **Retorna insights estruturados**, como:
-   - Score de empregabilidade
-   - Resumo reescrito
-   - Pontos de melhoria (gaps)
-   - Sugestões de bullet points
-   - Cursos recomendados do banco
-   - Preparação para entrevistas
-4. O app exibe tudo em UI moderna e interativa.
+- Nota de empregabilidade (0–100)  
+- Pontos de melhoria  
+- Resumo reescrito  
+- Sugestões de bullet points  
+- Preparação para entrevista  
+- Cursos recomendados com base nos gaps  
+- Explicação da nota (“raw”)  
 
----
-
-## 🧩 Integração entre Disciplinas (Requisito da matéria)
-
-| Disciplina | Implementação |
-|-----------|----------------|
-| **Web / Backend** | API .NET completa, endpoints de currículo, IA e cursos |
-| **Mobile** | Tela de currículo com edição, IA, PDF, persistência |
-| **IA Generativa** | Gemini integrado com prompts avançados |
-| **Banco / Arquitetura** | Oracle + EF Core, JSON persistido, modelos completos |
-
-O projeto demonstra integração TOTAL entre todos os módulos exigidos.
+A API retorna tudo em **JSON estruturado**, consumido de forma direta pelo app.
 
 ---
 
-## 📂 Estrutura do Repositório
+## 📄 Geração de PDF
+- Geração de currículo em PDF usando Expo Print  
+- Layout limpo e profissional  
+- Exportação direta do dispositivo  
 
+---
+
+## 📱 Telas do Aplicativo
+
+- **Home** — atalhos, trilhas, cursos e progresso  
+- **Trilhas** — caminhos de requalificação com etapas e metas  
+- **Cursos** — catálogo FIAP integrado ao painel Admin  
+- **Bem-estar** — registro diário de humor e estudo  
+- **Perfil** — dados pessoais, skills e completude  
+- **Currículo Inteligente** — CRUD completo, IA, persistência Oracle  
+- **Sobre** — visão geral do app + hash do commit  
+- **Admin** (separado) — cursos, usuários e currículos  
+
+---
+
+# 🧩 Arquitetura da Solução
+
+## 📱 Mobile (React Native + Expo)
+- Expo Router  
+- Zustand (store global)  
+- Axios (API)  
+- Expo Print (PDF)  
+- Identidade visual customizada  
+- Variáveis de ambiente via `EXPO_PUBLIC_API_URL`  
+- Script automatizado para hash do commit  
+
+Github Mobile:
+https://github.com/TCapela/RISE.git
+
+---
+
+## 🔧 Backend (.NET 8)
+- API REST com versionamento: `/api/v1`  
+- EF Core + Oracle  
+- Camada de serviços e controllers  
+- Serviço **AiCurriculoService** com prompt engineering  
+- Swagger  
+- CORS configurado  
+- Persistência de currículo, trilhas, cursos e bem-estar  
+
+Github DOTNET:
+https://github.com/raphatatto/gs_rise_dotnet.git
+
+---
+
+## 🗄 Banco Oracle
+Tabelas principais:
+
+- **TB_RISE_USUARIO**  
+- **TB_RISE_CURRICULO**  
+- **TB_RISE_CURSO**  
+- **TB_RISE_BEM_ESTAR**  
+- **TB_RISE_TRILHA**  
+- **TB_RISE_TRILHA_OBJETIVO**  
+
+---
+
+# 🧠 Fluxo da IA — End-to-End
+
+1. Usuário preenche o currículo no app  
+2. App envia JSON para o endpoint `/AiCurriculo/feedback`  
+3. API monta prompt avançado (prompt engineering)  
+4. Envio para **Gemini Flash 2.5**  
+5. IA retorna JSON estruturado  
+6. Backend valida e devolve ao app  
+7. App exibe insights, nota e recomendações  
+
+---
+
+# ▶️ Como Executar
+
+## Backend (.NET)
 ```
-/DOT_NET
-  /Controllers
-  /Models
-  /Services
-  /DTOs
-  /RiseContext.cs
-
-/MOBILE
-  /src
-    /app
-      /profile
-      /home
-      /admin
-    /services
-    /store
-```
-
----
-
-## 🔧 Como Rodar o Backend (.NET)
-
-1. Configurar `appsettings.json`:
-```json
-{
-  "ConnectionStrings": {
-    "OracleConnection": "..."
-  },
-  "Gemini": {
-    "ApiKey": "SUA_API_KEY",
-    "Model": "gemini-2.5-flash"
-  }
-}
-```
-
-2. Entrar na pasta:
-```sh
-cd DOT_NET/rise_gs
 dotnet restore
+dotnet build
 dotnet run
 ```
+Swagger:  
+`http://localhost:5106/swagger`
 
-A API sobe em: `http://localhost:5106/swagger`
+Ajustar a connection string no `appsettings.json`.
 
 ---
 
-## 📱 Como Rodar o App Mobile
-
-```sh
-cd MOBILE/RISE
+## Mobile (Expo)
+```
 npm install
-npx expo start
 ```
 
-Configurar a variável de ambiente:
+Criar `.env`:
 ```
-EXPO_PUBLIC_API_URL="http://SEU_IP_LOCAL:5106/api/v1"
+EXPO_PUBLIC_API_URL=http://SEU_IP:5106/api/v1
+```
+
+Rodar:
+```
+npm start
+```
+ou:
+```
+expo start
 ```
 
 ---
@@ -137,15 +147,15 @@ https://youtu.be/Z1gAPlWt6ms
 
 ---
 
-## 📝 Observações Finais
+# 🌍 Conexão com o Tema FIAP: Futuro do Trabalho
+O projeto atende diretamente os ODS:
 
-Este projeto cumpre **100% dos requisitos da disciplina**, incluindo:
+- **ODS 4 — Educação de Qualidade**  
+- **ODS 8 — Trabalho Decente e Crescimento Econômico**  
+- **ODS 9 — Inovação e Infraestrutura**  
+- **ODS 10 — Redução das Desigualdades**
 
-- Uso real de IA generativa  
-- API completa consumida no mobile  
-- Deep integration entre todas as disciplinas  
-- Código limpo, organizado e arquitetado  
-- Pronto para deploy  
+A solução reforça requalificação, empregabilidade e inclusão.
 
 ---
 
