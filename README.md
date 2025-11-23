@@ -131,11 +131,9 @@ EXPO_PUBLIC_API_URL="http://SEU_IP_LOCAL:5106/api/v1"
 
 ---
 
-## 🎥 Vídeo de Apresentação (requisito)
-- Demonstração mobile
-- Teste dos endpoints no Swagger
-- IA funcionando ao vivo
-- Como a integração ocorre
+# 🎥 Demonstração
+Link Vídeo Apresentação:
+https://youtu.be/Z1gAPlWt6ms
 
 ---
 
